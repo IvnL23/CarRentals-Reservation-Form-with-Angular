@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: #eef3f7;
+  width: 100%;
+}
+
+
+#submit-reservation {
+  background: #0657cc;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  cursor: pointer;
+}
+
+.caption {
+  margin: 1rem 0;
+}
+
+hr {
+  border: 2px solid #ccc;
+  border-radius: 5rem;
+}
+
+.caption span {
+  font-weight: 500;
+  margin-bottom: -1rem;
+  font-size: 1.1rem;
+}
+
+.form-car-rental-opciones_groups {
+  display: flex;
+  gap: 2rem;
+}
+
+.form-car-rental-opciones-radio_groups span {
+  font-weight: 600;
+}
+
+.form-car-rental-opciones-radio_groups hr {
+  border: 2px solid #ccc;
+  border-radius: 5rem;
+  width: 15%;
+}
+
+.table-reservaciones-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 5rem 0 2rem 0;
+}
+
+#table-reservaciones thead {
+  color: #383f46;
+  white-space: nowrap;
+  font-weight: 500 !important;
+}
+
+.table-reservaciones-header span {
+  margin: 1rem 0;
+  color: #758593;
+}
+
+
+.rental-icon-1{
+    position: fixed;
+    z-index: 999;
+    left: -16rem;
+    top: 15rem;
+}
+
+/*.rental-icon-3{
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 5rem;
+}*/
+
+.rental-icon-3 img{
+    width: 40%;
+}
+.rental-icon-2 {
+  position: fixed;
+  z-index: 999;
+  right: -5rem;
+  bottom: 1rem;
+}
+
+.rental-icon-2 img{
+    width: 55%;
+}

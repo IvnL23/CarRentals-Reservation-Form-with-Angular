@@ -1,0 +1,305 @@
+<div class="car_rental-reservaciones">
+  <div class="car_rental-reservaciones-header">
+    <h1>Reservaciones</h1>
+  </div>
+  <div class="car-rental-media-container">
+   
+    <div class="car-rental-media-audio">
+      <audio controls id="car-rental-audio">
+        <source src="../../assets/MUSICADEASCENSOR.mp3" type="audio/mpeg">
+        Tu navegador no admite el elemento de audio.
+      </audio>
+    </div>
+
+  </div>
+  <div class="car_rental-form-container">
+    <form id="car_rental-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="caption">
+        <span>Información personal</span>
+        <hr />
+      </div>
+      <div class="row">
+
+        <div class="form-group col-md-6 mb-3">
+          <label for="nombres" class="form-label">Nombres</label>
+          <input type="text" name="nombres" class="form-control" id="nombres" maxlength="50" formControlName="nombres" [class.is-invalid]="nombreNoValido" required placeholder="Fulano" />
+          <small *ngIf="nombreNoValido" class="text-danger">Ingrese un nombre.</small>
+        </div>
+
+        <div class="form-group col-md-6 mb-3">
+          <label for="apellidos" class="form-label">Apellidos</label>
+          <input type="text" name="apellidos" class="form-control" id="apellidos" maxlength="50" formControlName="apellidos" [class.is-invalid]="apellidoNoValido" required placeholder="De Tal" />
+          <small *ngIf="apellidoNoValido" class="text-danger">Ingrese un apellido.</small>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+          <input type="date" name="fechaNacimiento" class="form-control" id="fechaNacimiento" formControlName="fechaNacimiento" [class.is-invalid]="fechaNacimientoNoValido" required />
+          <small *ngIf="fechaNacimientoNoValido" class="text-danger">Ingrese una fecha de nacimiento.</small>
+        </div>
+
+        <div class="form-group col-md-6 mb-3">
+          <label for="Nacionalidad" class="form-label">Nacionalidad</label>
+          <select name="Nacionalidad"
+                  class="form-select"
+                  id="nacionalidadSelect"
+                  formControlName="Nacionalidad"
+                  [class.is-invalid]="NacionalidadNoValido"
+                  required>
+            <option selected>Seleccione</option>
+          </select>
+          <small *ngIf="NacionalidadNoValido" class="text-danger">Seleccione una nacionalidad.</small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-12 mb-3">
+          <label for="direccion" class="form-label">Dirección</label>
+          <input type="text" name="direccion" class="form-control" id="direccion" formControlName="direccion" [class.is-invalid]="direccionNoValido" required placeholder="C. Bienvenido García Gautier, Santo Domingo" />
+          <small *ngIf="direccionNoValido" class="text-danger">Ingrese una direccion.</small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label for="sector" class="form-label">Sector</label>
+          <input type="text" name="sector" class="form-control" formControlName="sector" id="sector" [class.is-invalid]="sectorNoValido" required placeholder="Los Restauradores" />
+          <small *ngIf="sectorNoValido" class="text-danger">Ingrese un sector.</small>
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <label for="provincia" class="form-label">Provincia</label>
+          <select name="provincia"
+                  class="form-select"
+                  id="provinciasSelect"
+                  formControlName="provincia"
+                  [class.is-invalid]="provinciaNoValido"
+                  required>
+            <option selected>Seleccione</option>
+          </select>
+          <small *ngIf="provinciaNoValido" class="text-danger">Seleccione una provincia.</small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label for="numtel" class="form-label">Número de télefono</label>
+          <input type="tel" name="numtel" id="numtel" class="form-control" formControlName="numtel" [class.is-invalid]="numtelNoValido" required placeholder="809-699-6525" />
+          <small *ngIf="numtelNoValido" class="text-danger">Ingrese un número de teléfono.</small>
+        </div>
+
+        <div class="form-group col-md-6 mb-3">
+          <label for="correoelect" class="form-label">Correo electrónico</label>
+          <input type="email" id="correoelect" class="form-control" name="correoelect" formControlName="correoelect" [class.is-invalid]="correoelectNoValido" required placeholder="fulanodetal@gmail.com" />
+          <small *ngIf="correoelectNoValido" class="text-danger">Ingrese un correo electrónico.</small>
+        </div>
+      </div>
+
+      <div class="caption">
+        <span>Información de renta</span>
+        <hr />
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label for="fechaEntrega" class="form-label">Fecha de entrega</label>
+          <input type="date" id="fechaEntrega" class="form-control" name="fechaEntrega" formControlName="fechaEntrega" [class.is-invalid]="fechaEntregaNoValido" required />
+          <small *ngIf="fechaEntregaNoValido" class="text-danger">Ingrese una fecha de entrega.</small>
+        </div>
+
+        <div class="form-group col-md-6 mb-3">
+          <label for="fechaDevolucion" class="form-label">Fecha de devolución</label>
+          <input type="date" id="fechaDevolucion" class="form-control" name="fechaDevolucion" formControlName="fechaDevolucion" [class.is-invalid]="fechaDevolucionNoValido" required />
+          <small *ngIf="fechaDevolucionNoValido" class="text-danger">Ingrese una fecha de devolución.</small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label for="vehiculo" class="form-label">Vehiculo a elegir (disponibles)</label>
+          <select name="vehiculo"
+                  class="form-select"
+                  id="vehiculosSelect"
+                  formControlName="vehiculo"
+                  [class.is-invalid]="vehiculoNoValido"
+                  required>
+            <option selected>Seleccione</option>
+          </select>
+          <small *ngIf="vehiculoNoValido" class="text-danger">Seleccione un vehículo.</small>
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <label for="cantConductores" class="form-label">Cantidad de conductores</label>
+          <input type="number" name="cantConductores" class="form-control" id="cantConductores" formControlName="cantConductores" [class.is-invalid]="cantConductoresNoValido" required />
+          <small *ngIf="cantConductoresNoValido" class="text-danger">Ingrese personas de conductores que tomarán el vehículo.</small>
+        </div>
+      </div>
+
+      <div class="caption">
+        <span>Opcionales</span>
+        <hr />
+      </div>
+
+      <div class="form-car-rental-opciones_groups">
+        <div class="form_radio_select-group">
+          <label for="millasIlimitadas" class="form-check-label">Millas ilimitadas</label>
+          <input type="checkbox" class="form-check-input" name="millasIlimitadas" id="millasIlimitadas" formControlName="millasIlimitadas" />
+        </div>
+        <div class="form_radio_select-group">
+          <label for="gps" class="form-check-label">GPS</label>
+          <input type="checkbox" class="form-check-input" name="gps" id="gps" formControlName="gps" />
+        </div>
+        <div class="form_radio_select-group">
+          <label for="asisCarret" class="form-check-label">Asistencia de carretera 24/7</label>
+          <input type="checkbox" class="form-check-input" name="asisCarret" id="asisCarret" formControlName="asisCarret" />
+        </div>
+        <div class="form_radio_select-group">
+          <label for="pasoRapido" class="form-check-label">Paso rápido de peaje</label>
+          <input type="checkbox" class="form-check-input" name="pasoRapido" id="pasoRapido" formControlName="pasoRapido" />
+        </div>
+      </div>
+
+      <div class="caption">
+        <span>Pago</span>
+        <hr />
+      </div>
+
+      <div class="form-car-rental-opciones-radio_groups">
+        <span>Tipo de persona</span>
+        <hr />
+
+        <div class="row">
+          <div class="form_radio_select-group col-md-3 mb-3">
+            <label for="personaFisica" class="form-check-label"> Fisica </label>
+            <input type="radio" class="form-check-input" name="tipoPersona" id="personaFisica" value="Fisica" formControlName="tipoPersona" />
+          </div>
+
+          <div class="form_radio_select-group col-md-3 mb-3">
+            <label for="personaJuridica" class="form-check-label"> Jurídica </label>
+            <input type="radio" class="form-check-input" name="tipoPersona" id="personaJuridica" value="Jurídica" formControlName="tipoPersona" />
+          </div>
+        </div>
+        <small *ngIf="" class="text-danger">Seleccione un tipo de persona.</small>
+
+      </div>
+
+      <div class="form-car-rental-opciones-radio_groups">
+        <span>Método de pago</span>
+        <hr />
+        <div class="row">
+          <div class="form_radio_select-group col-md-6 mb-3">
+            <label for="tarjeta" class="form-check-label">Tarjeta de crédito débito</label>
+            <input type="radio" class="form-check-input" name="metodoPago" id="metodoPagoTj" value="Tarjeta" formControlName="metodoPago" />
+          </div>
+          <div class="form_radio_select-group col-md-3 mb-3">
+            <label for="cheque" class="form-check-label">Cheque</label>
+            <input type="radio" class="form-check-input" name="metodoPago" id="metodoPagoCheque" value="Cheque" formControlName="metodoPago" />
+          </div>
+          <div class="form_radio_select-group col-md-3 mb-3">
+            <label for="Efectivo" class="form-check-label">Efectivo</label>
+            <input type="radio" class="form-check-input" name="metodoPago" id="metodoPagoEfectivo" value="Efectivo" formControlName="metodoPago" />
+          </div>
+          <small *ngIf="metodoPagoNoValido" class="text-danger">Seleccione un método de pago.</small>
+        </div>
+      </div>
+
+      <div class="caption">
+        <span>Documetos</span>
+        <hr />
+      </div>
+      <div class="form-group">
+        <label for="cedulaPasaporte" class="form-label">Foto de cédula o pasaporte</label>
+        <input type="file" class="form-control" name="cedulaPasaporte" id="cedulaPasaporte" required formControlName="cedulaPasaporte" [class.is-invalid]="cedulaPasaporteNoValido" />
+        <small *ngIf="cedulaPasaporteNoValido" class="text-danger">Inserte un escáner de la cédula o pasaporte.</small>
+      </div>
+      <div class="form-group">
+        <label for="licencia" class="form-label">Foto de licencia de conducir</label>
+        <input type="file" class="form-control" name="licencia" id="licencia" required formControlName="licencia" [class.is-invalid]="licenciaNoValido" />
+        <small *ngIf="licenciaNoValido" class="text-danger">Inserte un escáner de la licencia de conducir.</small>
+      </div>
+
+      <div class="caption">
+        <span>Comentarios para trato preferencial o añadidos</span>
+        <hr />
+      </div>
+      <div class="form-group">
+        <label for="comentarios" class="form-label">Comentarios</label>
+        <textarea name="comentarios" class="form-control" id="comentarios" cols="30" rows="10" formControlName="comentarios"></textarea>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Enviar reservación" id="submit-reservation" class="w-100" />
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="car-rental-media-container">
+  <div class="car-rental-media-video">
+    <video controls id="car-rental-video">
+      <source src="../../assets/Let's Go! Hertz. Car rental made extra special.mp4" type="video/mp4">
+      Tu navegador no admite el elemento de video.
+    </video>
+  </div>
+</div>
+<a id="videoScroller" href="#"></a>
+
+<div class="table-reservaciones-container">
+  <hr />
+  <div class="table-reservaciones-header">
+    <h2>Reservaciones</h2>
+    <span>Listado con todas las reservaciones 🚘</span>
+  </div>
+  <div class="table-reservaciones-contain">
+    <table #tableReservaciones id="table-reservaciones" class="table table-striped table-hover table-responsive">
+      <thead>
+        <tr>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Fecha de nacimiento</th>
+          <th>Nacionalidad</th>
+          <th>Dirección</th>
+          <th>Sector</th>
+          <th>Provincia</th>
+          <th>Celular</th>
+          <th>email</th>
+          <th>Fecha de entrega</th>
+          <th>Fecha devolución</th>
+          <th>Vehiculo</th>
+          <th>Cant. Conductores</th>
+          <th>Opcionales</th>
+          <th>Tipo persona</th>
+          <th>Método pago</th>
+          <th>Cédula</th>
+          <th>Licencia</th>
+          <th>Comentarios</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="rental-icon-1">
+  <img src="https://cdn1.iconfinder.com/data/icons/cars-01-1/512/oldcar-512.png" />
+</div>
+
+<div class="rental-icon-2">
+  <img src="https://cdn0.iconfinder.com/data/icons/travel-270/64/beach-sun_umbrella-vacation-sun-holiday-256.png" />
+</div>
+
+<!--<div class="rental-icon-3">
+  <img src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-07-256.png"/>
+</div>-->
+<!--<hr />
+<h3 class="nt-5">Formulario</h3>
+<pre>Estado formulario: {{form.valid}}
+<br />
+Status: {{form.status}}</pre>
+
+<pre>
+{{form.value | json}}
+</pre>
+
+-->
